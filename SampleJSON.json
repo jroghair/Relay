@@ -1,0 +1,27 @@
+[
+	{
+		"PluginName": "OpenCVCamera",
+		"InputType": "NoInput",
+		"PluginID": "0",
+		"Inputs": "NoInput",
+		"Outputs": "ImageQueue",
+		"Visualize": "True"
+	},
+	{
+		"PluginName": "HSVTransform",
+		"InputType": "ImageQueue",
+		"PluginID": "1",
+		"Inputs": "0",
+		"Outputs": "ImageQueue",
+		"Visualize": "False"
+	},
+	{
+		"PluginName": "GoogleCloudAnnotator",
+		"InputType": "ImageQueue",
+		"PluginID": "0",
+		"Inputs": "0",
+		"Outputs": "Labels",
+		"Visualize": "True"
+	}
+]
+		

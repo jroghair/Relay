@@ -1,0 +1,11 @@
+[
+	{
+		"PluginName": "ZedPositioning",
+		"InputType": "None",
+		"PluginID": "0",
+		"Inputs": "NoInput",
+		"Outputs": "PositionQueue",
+		"Visualize": "True"
+	}
+]
+		

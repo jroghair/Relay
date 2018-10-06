@@ -5,13 +5,19 @@ import pyzed.types as tp
 import pyzed.core as core
 import pyzed.defines as sl
 import threading
+import matplotlib.pyplot as plt
+import cv2
+
 
 class ZedPositioning():
     def __init__(self, inputQueue, outputQueue, visualize):
         self.inputQueue = inputQueue
         self.outputQueue = outputQueue
         self.visualize = visualize
-        init = zcam.PyInitParameters(camera_resolution=sl.PyRESOLUTION.PyRESOLUTION_HD720,
+        self.xlist = []
+        self.ylist = []
+        plt.figure(1)
+        init = zcam.PyInitParameters(camera_resolution=sl.PyRESOLUTION.PyRESOLUTION_VGA,
                                      depth_mode=sl.PyDEPTH_MODE.PyDEPTH_MODE_PERFORMANCE,
                                      coordinate_units=sl.PyUNIT.PyUNIT_METER,
                                      coordinate_system=sl.PyCOORDINATE_SYSTEM.PyCOORDINATE_SYSTEM_RIGHT_HANDED_Y_UP,
@@ -28,7 +34,6 @@ class ZedPositioning():
 
         runtime = zcam.PyRuntimeParameters()
         camera_pose = zcam.PyPose()
-        print(camera_pose)
 
         py_translation = core.PyTranslation()
 
@@ -60,6 +65,19 @@ class ZedPositioning():
                     pose_data = camera_pose.pose_data(core.PyTransform())
                     self.outputQueue.put(pose_data)
                     if(self.visualize):
-                        print(pose_data)
+                        ax1 = plt.subplot()
+                        self.x = float(pose_data[0][3])
+                        self.y = -float(pose_data[2][3])
+                        self.z = float(pose_data[1][3])
+                        self.xlist.append(self.x)
+                        self.ylist.append(self.y)
+                        self.position = [self.x, self.y, self.z]
+                        self.outputQueue.put(self.position)
+                        ax1.set_aspect("equal")
+                        ax1.scatter(self.x, self.y, c = 'r', s = 3)
+                        plt.savefig("Test.png")
+                        tempimg = cv2.imread("Test.png")
+                        cv2.imshow("ZedPositioning", tempimg)
+                        cv2.waitKey(1)
             else:
                 tp.c_sleep_ms(1)

@@ -13,7 +13,7 @@
 		"PluginID": "1",
 		"Inputs": "0",
 		"Outputs": "ImageQueue",
-		"Visualize": "False"
+		"Visualize": "True"
 	},
 	{
 		"PluginName": "GoogleCloudAnnotator",
@@ -21,6 +21,14 @@
 		"PluginID": "0",
 		"Inputs": "0",
 		"Outputs": "Labels",
+		"Visualize": "True"
+	},
+	{
+		"PluginName": "MobileNetSSD",
+		"InputType": "ImageQueue",
+		"PluginID": "2",
+		"Inputs": "0",
+		"Outputs": "ImageQueue",
 		"Visualize": "True"
 	}
 ]

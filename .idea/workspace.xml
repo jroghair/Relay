@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acfcd4eb-3727-44b0-be87-9454f632bc50" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/GoogleCloudAnnotator.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/HSVTransform.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/OpenCVCamera.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/ThreadSpawner.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/google-api-test.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/MobileNetSSD.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/SampleJSON.json" afterPath="$PROJECT_DIR$/SampleJSON.json" />
+      <change beforePath="$PROJECT_DIR$/ThreadSpawner.py" afterPath="$PROJECT_DIR$/ThreadSpawner.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/GoogleCloudAnnotator.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="248">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -44,10 +43,22 @@
       <file leaf-file-name="ThreadSpawner.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ThreadSpawner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+            <state relative-caret-position="210">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Simulator.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../Semester 6/Robotics/Simulator/AutonomousSnowplow2019/Simulator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="313" column="0" lean-forward="true" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,19 +67,31 @@
       <file leaf-file-name="HSVTransform.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HSVTransform.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+            <state relative-caret-position="231">
+              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="15" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenCVCamera.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OpenCVCamera.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OpenCVCamera.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
               <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MobileNetSSD.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MobileNetSSD.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="12" column="65" lean-forward="true" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,6 +105,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>show</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -89,17 +117,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/MainThread.py" />
-        <option value="$PROJECT_DIR$/ThreadSpawner.py" />
         <option value="$PROJECT_DIR$/HSVTransform.py" />
         <option value="$PROJECT_DIR$/google-api-test.py" />
         <option value="$PROJECT_DIR$/GoogleCloudAnnotator.py" />
         <option value="$PROJECT_DIR$/OpenCVCamera.py" />
+        <option value="$PROJECT_DIR$/MobileNetSSD.py" />
+        <option value="$PROJECT_DIR$/ThreadSpawner.py" />
+        <option value="$PROJECT_DIR$/../../Semester 6/Robotics/Simulator/AutonomousSnowplow2019/Simulator.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="width" value="976" />
+    <option name="x" value="-8" />
+    <option name="width" value="1113" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
@@ -151,7 +181,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ThreadSpawner">
+  <component name="RunManager" selected="Python.Simulator">
+    <configuration name="Simulator" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../Semester 6/Robotics/Simulator/AutonomousSnowplow2019" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Hackathon" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../Semester 6/Robotics/Simulator/AutonomousSnowplow2019/Simulator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="ThreadSpawner" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -188,14 +236,16 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.google-api-test" />
       <item index="1" class="java.lang.String" itemvalue="Python.ThreadSpawner" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Simulator" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.ThreadSpawner" />
-        <item index="1" class="java.lang.String" itemvalue="Python.google-api-test" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.Simulator" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ThreadSpawner" />
+        <item index="2" class="java.lang.String" itemvalue="Python.google-api-test" />
       </list>
     </recent_temporary>
   </component>
@@ -284,24 +334,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HSVTransform.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Semester 6/Robotics/Simulator/AutonomousSnowplow2019/Simulator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="310" column="22" lean-forward="true" selection-start-line="310" selection-start-column="22" selection-end-line="310" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/google-api-test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -315,20 +347,18 @@
     <entry file="file://$PROJECT_DIR$/GoogleCloudAnnotator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ThreadSpawner.py">
+    <entry file="file://$PROJECT_DIR$/HSVTransform.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="231">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="15" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -337,6 +367,36 @@
         <state relative-caret-position="126">
           <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MobileNetSSD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="12" column="65" lean-forward="true" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThreadSpawner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Semester 6/Robotics/Simulator/AutonomousSnowplow2019/Simulator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="313" column="0" lean-forward="true" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

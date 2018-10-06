@@ -4,19 +4,20 @@ import csv
 import json
 from OpenCVCamera import OpenCVCamera
 from HSVTransform import HSVTransform
+from MobileNetSSD import MobileNetSSD
 from GoogleCloudAnnotator import GoogleCloudAnnotator
 import random
 # Use this file to spawn all threads once the GUI has been used to configure everything
 
-ClassDict = {"OpenCVCamera": OpenCVCamera, "HSVTransform": HSVTransform}
 
-ImageQueue0 = queue.Queue(maxsize=2)
+ImageQueue0 = queue.Queue(maxsize=4)
 HSVQueue1 = queue.Queue()
 
 
 configFilename = "SampleJSON.json"
 
 threadList = []
+outputQueueList = [] # Keep track of all outputs for use in the main thread later
 with open(configFilename) as fp:
     json_object = json.load(fp)
     ThreadDefinitionsList = [thread for thread in json_object]
@@ -25,6 +26,7 @@ with open(configFilename) as fp:
         Output_Queue_name = defin["Outputs"] + defin["PluginID"]
         exec(Output_Queue_name + " = queue.Queue()")
         outputQueue = eval(Output_Queue_name) # outputQueue is the queue object for the output
+        outputQueueList.append(outputQueue)
 
         InputQueueName = defin["InputType"] + defin["Inputs"] # Ex: "ImageQueue4"
         # Check if the object already exists so we don't overwrite it

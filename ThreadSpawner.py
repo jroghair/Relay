@@ -6,6 +6,7 @@ from OpenCVCamera import OpenCVCamera
 from HSVTransform import HSVTransform
 from MobileNetSSD import MobileNetSSD
 from GoogleCloudAnnotator import GoogleCloudAnnotator
+from ZedPositioning import ZedPositioning
 import random
 # Use this file to spawn all threads once the GUI has been used to configure everything
 

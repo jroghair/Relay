@@ -16,12 +16,11 @@ class ZedPositioning():
         self.visualize = visualize
         self.xlist = []
         self.ylist = []
-        plt.figure(1)
         init = zcam.PyInitParameters(camera_resolution=sl.PyRESOLUTION.PyRESOLUTION_VGA,
                                      depth_mode=sl.PyDEPTH_MODE.PyDEPTH_MODE_PERFORMANCE,
                                      coordinate_units=sl.PyUNIT.PyUNIT_METER,
                                      coordinate_system=sl.PyCOORDINATE_SYSTEM.PyCOORDINATE_SYSTEM_RIGHT_HANDED_Y_UP,
-                                     sdk_verbose=True)
+                                     sdk_verbose=False)
         cam = zcam.PyZEDCamera()
         status = cam.open(init)
         if status != tp.PyERROR_CODE.PySUCCESS:
@@ -36,7 +35,7 @@ class ZedPositioning():
         camera_pose = zcam.PyPose()
 
         py_translation = core.PyTranslation()
-
+        print("Starting ZEDPositioning")
         self.start_zed(cam, runtime, camera_pose, py_translation)
 
     def start_zed(self, cam, runtime, camera_pose, py_translation):
@@ -63,18 +62,22 @@ class ZedPositioning():
                     text_translation = str((tx, ty, tz))
                     text_rotation = str((rx, ry, rz))
                     pose_data = camera_pose.pose_data(core.PyTransform())
-                    self.outputQueue.put(pose_data)
-                    if(self.visualize):
-                        ax1 = plt.subplot()
-                        self.x = float(pose_data[0][3])
-                        self.y = -float(pose_data[2][3])
-                        self.z = float(pose_data[1][3])
-                        self.xlist.append(self.x)
-                        self.ylist.append(self.y)
-                        self.position = [self.x, self.y, self.z]
+                    self.x = float(pose_data[0][3])
+                    self.y = -float(pose_data[2][3])
+                    self.z = float(pose_data[1][3])
+                    self.orientation = float(ry)
+                    self.xlist.append(self.x)
+                    self.ylist.append(self.y)
+                    self.position = [self.x, self.y, self.z, self.orientation]
+                    if self.outputQueue.qsize()==0:
                         self.outputQueue.put(self.position)
-                        ax1.set_aspect("equal")
-                        ax1.scatter(self.x, self.y, c = 'r', s = 3)
+                    else:
+                        self.outputQueue.get()
+                        self.outputQueue.put(self.position)
+                    if(self.visualize):
+                        ax2 = plt.subplot(211)
+                        ax2.set_aspect("equal")
+                        ax2.scatter(self.x, self.y, c = 'r', s = 3)
                         plt.savefig("Test.png")
                         tempimg = cv2.imread("Test.png")
                         cv2.imshow("ZedPositioning", tempimg)

@@ -17,7 +17,7 @@ class Motor_Interface:
 
     def run(self):
         ser = serial.Serial(self.cp, 115200)
-        sleep(3)
+        sleep(8)
 
         while True:
 
@@ -29,11 +29,13 @@ class Motor_Interface:
                 # if (self.visualize):
                 #     print("Command sent to arduino: " + str(command))
             else:
+                #if self.visualize:
+                 #   print("Sending stop command... why?")
                 ser.write(b's')
                 # if (self.visualize):
                 #     print("Command sent to arduino: " + str('s'))
 
-            sleep(.02)
+            sleep(.1)
 
 # def main():
 # 	input_queue = q.Queue()

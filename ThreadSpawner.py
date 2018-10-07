@@ -29,7 +29,7 @@ with open(configFilename) as fp:
     for defin in ThreadDefinitionsList:
         objectType = eval(defin["PluginName"])
         Output_Queue_name = defin["Outputs"] + defin["PluginID"]
-        exec(Output_Queue_name + " = queue.Queue(maxsize=4)")
+        exec(Output_Queue_name + " = queue.LifoQueue(maxsize=4)")
         outputQueue = eval(Output_Queue_name)  # outputQueue is the queue object for the output
         outputQueueList.append(outputQueue)
 

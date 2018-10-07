@@ -6,7 +6,7 @@
 		"PluginID": "0",
 		"Inputs": "NoInput",
 		"Outputs": "Position",
-		"Visualize": "True"
+		"Visualize": "False"
 	},
 	{
 		"PluginName": "Zed_PointToPoint",
@@ -15,7 +15,7 @@
 		"PluginID": "0",
 		"Inputs": "0",
 		"Outputs": "Drive_Packet",
-		"Visualize": "True"
+		"Visualize": "False"
 	},
 	{
 		"PluginName": "Motor_Interface",

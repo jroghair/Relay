@@ -6,6 +6,7 @@ import pyzed.core as core
 import pyzed.defines as sl
 import threading, os
 import pyqtgraph as pg
+from time import time
 
 from PyQt5 import QtCore, QtWidgets, QtGui
 import matplotlib.pyplot as plt
@@ -49,6 +50,7 @@ class ZedPositioning():
 
     def run(self, cam, runtime, camera_pose, py_translation):
         while True:
+            starttime = time()
             if cam.grab(runtime) == tp.PyERROR_CODE.PySUCCESS:
                 tracking_state = cam.get_position(camera_pose)
                 text_translation = ""
@@ -70,7 +72,7 @@ class ZedPositioning():
                     self.x = float(pose_data[0][3])
                     self.y = -float(pose_data[2][3])
                     self.z = float(pose_data[1][3])
-                    self.orientation = float(ry)
+                    self.orientation = float(ry) + 3.14159/2
                     self.xlist.append(self.x)
                     self.ylist.append(self.y)
                     self.position = [self.x, self.y, self.z, self.orientation]
@@ -79,8 +81,11 @@ class ZedPositioning():
                     else:
                         self.outputQueue.get()
                         self.outputQueue.put(self.position)
+                    endtime = time()
                     if(self.visualize):
-                        print("X, Y: " + str(self.x) + ", " + str(self.y))
+                        print("Time elapsed Zed Positioning: " + str(endtime-starttime))
+                        print("Approximate fps: " + str(1/(endtime-starttime)))
+                        print("X, Y, Theta: " + str(self.x) + ", " + str(self.y) + ", " + str(self.orientation*180/3.14159))
                         # ax2 = plt.subplot(211)
                         # ax2.set_aspect("equal")
                         # ax2.scatter(self.x, self.y, c = 'r', s = 3)

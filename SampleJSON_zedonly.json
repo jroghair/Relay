@@ -1,0 +1,29 @@
+[
+	{
+		"PluginName": "ZedPositioning",
+		"InputType": "None",
+		"InputType2": "None",
+		"PluginID": "0",
+		"Inputs": "NoInput",
+		"Outputs": "Position",
+		"Visualize": "True"
+	},
+	{
+		"PluginName": "tim_551_component",
+		"InputType": "None",
+		"InputType2": "None",
+		"PluginID": "0",
+		"Inputs": "NoInput",
+		"Outputs": "laserscan",
+		"Visualize": "True"
+	},
+	{
+		"PluginName": "Zed_Lidar_SLAM",
+		"InputType": "laserscan",
+		"PluginID": "0",
+		"Inputs": "0",
+		"InputType2": "Position",
+		"Inputs2": "0",
+		"Outputs": "map"
+]
+		

@@ -1,0 +1,9 @@
+False
+(<queue.Queue object at 0x000001D7A7E81CC0>, <queue.Queue object at 0x000001D7A7E81C88>, False)
+False
+(<queue.Queue object at 0x000001D7A7E81EF0>, <queue.Queue object at 0x000001D7A7E81F28>, False)
+Position
+<queue.Queue object at 0x000001D7A7E81C88>
+(<queue.Queue object at 0x000001D7A7E81F28>, <queue.Queue object at 0x000001D7A7E81C88>, <queue.Queue object at 0x000001D7A7E7D208>, True)
+Starting tim_551_component
+Starting ZEDPositioning

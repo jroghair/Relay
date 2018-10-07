@@ -7,15 +7,16 @@ from HSVTransform import HSVTransform
 from MobileNetSSD import MobileNetSSD
 from GoogleCloudAnnotator import GoogleCloudAnnotator
 from ZedPositioning import ZedPositioning
+from tim_551_component import tim_551_component
+from Zed_Lidar_SLAM import Zed_Lidar_SLAM
+
 import random
 
 # Use this file to spawn all threads once the GUI has been used to configure everything
 
 
-ImageQueue0 = queue.Queue(maxsize=4)
-HSVQueue1 = queue.Queue()
 
-configFilename = "SampleJSON_some.json"
+configFilename = "SampleJSON_zed_lidar_slam.json"
 
 threadList = []
 outputQueueList = []  # Keep track of all outputs for use in the main thread later
@@ -25,7 +26,7 @@ with open(configFilename) as fp:
     for defin in ThreadDefinitionsList:
         objectType = eval(defin["PluginName"])
         Output_Queue_name = defin["Outputs"] + defin["PluginID"]
-        exec(Output_Queue_name + " = queue.Queue()")
+        exec(Output_Queue_name + " = queue.Queue(maxsize=4)")
         outputQueue = eval(Output_Queue_name)  # outputQueue is the queue object for the output
         outputQueueList.append(outputQueue)
 
@@ -38,9 +39,19 @@ with open(configFilename) as fp:
                 inputQueue = queue.Queue()
         except:
             inputQueue = queue.Queue()
-        visualizeTemp = eval(defin["Visualize"])
 
-        tempargs = (inputQueue, outputQueue, visualizeTemp)
+        if(defin["InputType2"] == "Position"):
+            print(defin["InputType2"])
+            inputQueue2Name = defin["InputType2"] + defin["Inputs2"]
+            inputQueue2 = eval(inputQueue2Name)
+        else:
+            inputQueue2 = False
+        visualizeTemp = eval(defin["Visualize"])
+        print(inputQueue2)
+        if inputQueue2:
+            tempargs = (inputQueue, inputQueue2, outputQueue, visualizeTemp)
+        else:
+            tempargs = (inputQueue, outputQueue, visualizeTemp)
         tempThread = threading.Thread(target=objectType, args=tempargs)
         print(tempargs)
         threadList.append(tempThread)

@@ -89,8 +89,10 @@ class App:
 
     def opencvCameraRectangle(self):
         ans=0
+        visual = False
         if self.opencvVisualize==False:
             ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
             # saveListLBL = Label(self.canvas, text="Please enter pluginID: ")
             self.opencvrec = self.canvas.create_rectangle(0, 0, self.width*0.25, self.height*0.25, fill='white', outline='black', width=3)
             self.opencvlab = self.canvas.create_text((((self.width*0.25)/2),(self.height*0.25)/2), text="Camera")
@@ -100,14 +102,16 @@ class App:
             self.canvas.delete(self.opencvlab)
             self.opencvVisualize=False
             #jsonData = self.establishPlugins("OpenCVCamera, "NoInput", "0", "NoInput", "ImageQueue", "Visualize")
-        opencvplugin = self.establishPlugins("OpenCVCamera", "NoInput", "NoInput", ans, "NoInput", "NoInput", "ImageQueue", self.opencvVisualize)
+        opencvplugin = self.establishPlugins("OpenCVCamera", "NoInput", "NoInput", ans, "NoInput", "NoInput", "ImageQueue", visual)
         self.plugins["opencv"] = opencvplugin
 
 
     def hsvRectangle(self):
         ans=0
+        visual = False
         if self.hsvVisualize==False:
             ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
             self.hsvrec = self.canvas.create_rectangle(self.width*0.25, 0, self.width*0.5, self.height*0.25, fill='white', outline='black', width=3)
             self.hsvlab = self.canvas.create_text((self.width*0.25 + self.width*0.25/2, self.height*0.25/2), text="HSV")
             self.hsvVisualize=True
@@ -116,13 +120,15 @@ class App:
             self.canvas.delete(self.hsvlab)
             self.hsvVisualize=False
         #jsonData = self.establishPlugins("HSVTransform", "ImageQueue", "1", "0", "ImageQueue", "Visualize")
-        hsvplugin = self.establishPlugins("HSVTransform", "ImageQueue", "NoInput", ans, "0", "NoInput", "ImageQueue", self.hsvVisualize)
+        hsvplugin = self.establishPlugins("HSVTransform", "ImageQueue", "NoInput", ans, "0", "NoInput", "ImageQueue", visual)
         self.plugins["hsv"] = hsvplugin
 
     def mobnetRectangle(self):
         ans=0
+        visual = False
         if self.mobnetVisualize==False:
             ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
             self.mobnetrec = self.canvas.create_rectangle(self.width*0.5, 0, self.width*0.75, self.height*0.25, fill='white', outline='black', width=3)
             self.mobnetlab = self.canvas.create_text((self.width*0.5 + self.width*0.25/2, self.height*0.25/2), text="Mobile Net")
             #jsonData = self.establishPlugins("OpenCVCamera", "NoInput", "0", "NoInput", "ImageQueue", "Visualize")
@@ -131,13 +137,15 @@ class App:
             self.canvas.delete(self.mobnetrec)
             self.canvas.delete(self.mobnetlab)
             self.mobnetVisualize=False
-        mobnetplugin = self.establishPlugins("MobileNetSSD", "ImageQueue", "NoInput", ans, "0", "NoInput", "ImageQueue", self.mobnetVisualize)
+        mobnetplugin = self.establishPlugins("MobileNetSSD", "ImageQueue", "NoInput", ans, "0", "NoInput", "ImageQueue", visual)
         self.plugins["mobnet"] = mobnetplugin
 
     def cloudRectangle(self):
         ans=0
+        visual = False
         if self.cloudVisualize==False:
             ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
             self.cloudrec = self.canvas.create_rectangle(self.width*0.75 , 0, self.width, self.height*0.25, fill="white", outline='black', width=3)
             self.cloudlab = self.canvas.create_text((self.width*0.75 + self.width/8, self.height*0.25/2), text="Google Cloud")
             self.cloudVisualize=True
@@ -145,13 +153,15 @@ class App:
             self.canvas.delete(self.cloudrec)
             self.canvas.delete(self.cloudlab)
             self.cloudVisualize=False
-        cloudplugin = self.establishPlugins("GoogleCloudAnnotator", "ImageQueue", "NoInput", ans, "0", "NoInput", "Labels", self.cloudVisualize)
+        cloudplugin = self.establishPlugins("GoogleCloudAnnotator", "ImageQueue", "NoInput", ans, "0", "NoInput", "Labels", visual)
         self.plugins["cloud"] = cloudplugin
 
     def zedposRectangle(self):
         ans=0
+        visual = False
         if self.zedposVisualize==False:
             ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
             self.zedposrec = self.canvas.create_rectangle(0, self.height*0.25, self.width*0.25, self.height*0.5, fill="white", outline='black', width='3')
             self.zedposlab = self.canvas.create_text((self.width*0.25/2, self.height*0.25 + self.height*0.25/2), text = "Zed Positioning")
             self.zedposVisualize=True
@@ -159,14 +169,16 @@ class App:
             self.canvas.delete(self.zedposrec)
             self.canvas.delete(self.zedposlab)
             self.zedposVisualize=False
-        zedposplugin = self.establishPlugins("ZedPositioning", "None", "NoInput", ans, "NoInput", "NoInput", "PositionQueue", self.zedposVisualize)
+        zedposplugin = self.establishPlugins("ZedPositioning", "None", "NoInput", ans, "NoInput", "NoInput", "PositionQueue", visual)
         self.plugins["zedpos"] = zedposplugin
 
     # def establishPlugins(self, PluginName, InputType, InputType2, PluginID, Inputs, Inputs2, Outputs, Visualize
     def timRectangle(self):
         ans=0
+        visual = False
         if self.timVisualize==False:
             ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
             self.timrec = self.canvas.create_rectangle(self.width*0.25, self.height*0.25, self.width*0.5, self.height*0.5, fill="white", outline="black", width='3')
             self.timlab = self.canvas.create_text((self.width*0.25 + self.width*0.25/2, self.height*0.25 + self.height*0.25/2), text = "Tim 551 Component")
             self.timVisualize=True
@@ -174,13 +186,15 @@ class App:
             self.canvas.delete(self.timrec)
             self.canvas.delete(self.timlab)
             self.timVisualize=False
-        timplugin = self.establishPlugins("tim_551_component", "None", "None", ans, "NoInput", "NoInput", "laserscan", self.timVisualize)
+        timplugin = self.establishPlugins("tim_551_component", "None", "None", ans, "NoInput", "NoInput", "laserscan", visual)
         self.plugins["tim"] = timplugin
 
     def zedslamRectangle(self):
         ans=0
+        visual = False
         if(self.zedslamVisualize==False):
             ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
             self.zedslamrec = self.canvas.create_rectangle(self.width*0.5, self.height*0.25, self.width*0.75, self.height*0.5, fill="white", outline="black", width='3')
             self.zedslamlab = self.canvas.create_text((self.width*0.5 + self.width*0.25/2, self.height*0.25 + self.height*0.25/2), text = "Zed Lidar Slam")
             self.zedslamVisualize=True
@@ -188,14 +202,16 @@ class App:
             self.canvas.delete(self.zedslamrec)
             self.canvas.delete(self.zedslamlab)
             self.zedslamVisualize=False
-        zedslamplugin = self.establishPlugins("Zed_Lidar_SLAM", "laserscan", "Position", ans, "0", "0", "map", self.zedslamVisualize)
+        zedslamplugin = self.establishPlugins("Zed_Lidar_SLAM", "laserscan", "Position", ans, "0", "0", "map", visual)
         self.plugins["zedslam"] = zedslamplugin
 
 
     def ipwebRectangle(self):
         ans=0
+        visual = False
         if(self.ipwebVisualize==False):
             ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
             self.ipwebrec = self.canvas.create_rectangle(self.width*0.75, self.height*0.25, self.width, self.height*0.5, fill="white", outline="black", width='3')
             self.ipweblab = self.canvas.create_text((self.width*0.75 + self.width*0.25/2, self.height*0.25 + self.height*0.25/2), text = "IP WebCam")
             self.ipwebVisualize=True
@@ -204,7 +220,7 @@ class App:
             self.canvas.delete(self.ipweblab)
             self.ipwebVisualize=False
         # def establishPlugins(self, PluginName, InputType, InputType2, PluginID, Inputs, Inputs2, Outputs, Visualize
-        ipwebplugin = self.establishPlugins("IPWebcam", "None", "None", ans, "None", "None", "ImageQueue", self.ipwebVisualize)
+        ipwebplugin = self.establishPlugins("IPWebcam", "None", "None", ans, "None", "None", "ImageQueue", visual)
         self.plugins["ipweb"] = ipwebplugin
 
 

@@ -15,6 +15,8 @@ class App:
     timVisualize = False
     zedslamVisualize = False
     ipwebVisualize = False
+    motorVisualize = False
+    zedptpVisualize = False
 
     opencvrec = None
     opencvlab = None
@@ -32,9 +34,13 @@ class App:
     zedslamlab = None
     ipwebrec = None
     ipweblab = None
+    motorrec = None
+    motorlab = None
+    zedptprec = None
+    zedptplab = None
 
     #nested dictionary to pass plugins to output json file
-    plugins = {'AAopencv': {}, 'BAhsv' : {}, 'BBcloud': {}, 'BCmobnet': {}, 'CAzedpos': {}, 'CBtim': {}, 'CDzedslam':{}, 'ABipweb': {}}
+    plugins = {'AAopencv': {}, 'BAhsv' : {}, 'BBcloud': {}, 'BCmobnet': {}, 'CAzedpos': {}, 'CBtim': {}, 'CDzedslam':{}, 'ABipweb': {}, 'Motor': {}, 'zedptp': {}}
 
 
     def __init__(self, master):
@@ -79,6 +85,12 @@ class App:
 
         ipweb = Button(toolbar, text="IP Webcam", fg="teal", padx=5, pady=5, command=self.ipwebRectangle)
         ipweb.pack(side=LEFT)
+
+        motor = Button(toolbar, text="Motor Interface", fg="pink", padx=5, pady=5, command=self.motorRectangle)
+        motor.pack(side=LEFT)
+
+        zedptp = Button(toolbar, text="Zed PTP", fg="brown", padx=5, pady=5, command=self.zedptpRectangle)
+        zedptp.pack(side=LEFT)
 
         run = Button(toolbar, text="Run", fg="black", padx=5, pady=5, command=self.writeToJson)
         run.pack(side=LEFT)
@@ -223,6 +235,39 @@ class App:
         ipwebplugin = self.establishPlugins("IPWebcam", "None", "None", ans, "None", "None", "ImageQueue", visual)
         self.plugins["ABipweb"] = ipwebplugin
 
+    def motorRectangle(self):
+        ans=0
+        visual = False
+        if(self.motorVisualize==False):
+            ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
+            self.motorrec = self.canvas.create_rectangle(0, self.height*0.50, self.width*0.25, self.height*0.75, fill="white", outline="black", width='3')
+            self.motorlab = self.canvas.create_text((self.width*0.25/2, self.height*0.50 + self.height*0.25/2), text = "Motor Interface")
+            self.motorVisualize=True
+        else:
+            self.canvas.delete(self.motorrec)
+            self.canvas.delete(self.motorlab)
+            self.motorVisualize=False
+        # def establishPlugins(self, PluginName, InputType, InputType2, PluginID, Inputs, Inputs2, Outputs, Visualize
+        motorplugin = self.establishPlugins("Motor_Interface", "Drive_Packet", "COM_Port", ans, "0", "COM5", "None", visual)
+        self.plugins["motor"] = motorplugin
+
+    def zedptpRectangle(self):
+        ans=0
+        visual = False
+        if(self.zedptpVisualize==False):
+            ans = askinteger('Enter Integer', 'Please enter the plugin ID')
+            visual = askstring('Enter Boolean', 'Do you want to visualize it?')
+            self.zedptprec = self.canvas.create_rectangle(self.width*0.25, self.height*0.50, self.width*0.5, self.height*0.75, fill="white", outline="black", width='3')
+            self.zedptplab = self.canvas.create_text((self.width*0.25+self.width*0.25/2, self.height*0.50 + self.height*0.25/2), text = "Zed PointToPoint")
+            self.zedptpVisualize=True
+        else:
+            self.canvas.delete(self.zedptprec)
+            self.canvas.delete(self.zedptplab)
+            self.zedptpVisualize=False
+        # def establishPlugins(self, PluginName, InputType, InputType2, PluginID, Inputs, Inputs2, Outputs, Visualize
+        zedptpplugin = self.establishPlugins("Zed_PointToPoint", "Position", "None", ans, "0", "None", "Drive_Packet", visual)
+        self.plugins["zedptp"] = zedptpplugin
 
     #need to modify still
     def writeToJson(self):

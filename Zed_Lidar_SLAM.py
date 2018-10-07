@@ -46,8 +46,8 @@ class Zed_Lidar_SLAM:
         self.count = 0
         while True:
             self.count+=1
-            self.laserscan = self.inputQueue1.get(block=True)
             self.position = self.inputQueue2.get(block=True)
+            self.laserscan = self.inputQueue1.get(block=True)
             self.x = self.position[0]
             self.y = self.position[1]
             xlist, ylist = self.map_scan_to_world(self.laserscan, self.position)

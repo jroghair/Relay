@@ -2,8 +2,8 @@
 
 Servo myservo1; //left
 Servo myservo2; //right
-double intensity = 20;
-double turnIntensity = 7.5;
+double intensity = 15;
+double turnIntensity = 10;
 
 void setup() {
   Serial.begin(115200);

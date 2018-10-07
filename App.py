@@ -40,7 +40,7 @@ class App:
     zedptplab = None
 
     #nested dictionary to pass plugins to output json file
-    plugins = {'AAopencv': {}, 'BAhsv' : {}, 'BBcloud': {}, 'BCmobnet': {}, 'CAzedpos': {}, 'CBtim': {}, 'CDzedslam':{}, 'ABipweb': {}, 'Motor': {}, 'zedptp': {}}
+    plugins = {'AAopencv': {}, 'BAhsv' : {}, 'BBcloud': {}, 'BCmobnet': {}, 'CAzedpos': {}, 'CBtim': {}, 'CDzedslam':{}, 'ABipweb': {}, 'Motor': {}, 'ACzedptp': {}}
 
 
     def __init__(self, master):
@@ -267,7 +267,7 @@ class App:
             self.zedptpVisualize=False
         # def establishPlugins(self, PluginName, InputType, InputType2, PluginID, Inputs, Inputs2, Outputs, Visualize
         zedptpplugin = self.establishPlugins("Zed_PointToPoint", "Position", "None", ans, "0", "None", "Drive_Packet", visual)
-        self.plugins["zedptp"] = zedptpplugin
+        self.plugins["ACzedptp"] = zedptpplugin
 
     #need to modify still
     def writeToJson(self):

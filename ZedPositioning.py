@@ -17,6 +17,7 @@ class ZedPositioning():
     def __init__(self, inputQueue, outputQueue, visualize):
         self.inputQueue = inputQueue
         self.outputQueue = outputQueue
+        #self.outputQueueImages = outputQueueImages
         self.visualize = visualize
         self.xlist = []
         self.ylist = []
@@ -28,6 +29,7 @@ class ZedPositioning():
                                      coordinate_system=sl.PyCOORDINATE_SYSTEM.PyCOORDINATE_SYSTEM_RIGHT_HANDED_Y_UP,
                                      sdk_verbose=False)
         cam = zcam.PyZEDCamera()
+        self.image = core.PyMat()
         status = cam.open(init)
         if status != tp.PyERROR_CODE.PySUCCESS:
             print(repr(status))
@@ -52,6 +54,12 @@ class ZedPositioning():
         while True:
             starttime = time()
             if cam.grab(runtime) == tp.PyERROR_CODE.PySUCCESS:
+                cam.retrieve_image(self.image, sl.PyVIEW.PyVIEW_LEFT)
+                # self.CVimage = self.image.get_data()
+                # if (self.outputImageQueue.qsize() > 1):
+                #     self.outputImageQueue.get()  # Remove last thing from queue
+                # else:
+                #     self.outputImageQueue.put(self.CVimage)
                 tracking_state = cam.get_position(camera_pose)
                 text_translation = ""
                 text_rotation = ""

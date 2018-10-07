@@ -19,10 +19,10 @@ import random
 
 
 
-#configFilename = "SampleJSON_zed_ard_p2p.json"
-#configFilename = "SampleJSON_opencvcam_ipcam.json"
+#configFilename = "SampleJSON_zed_mn.json"
+configFilename = "SampleJSON_opencvcam_ipcam.json"
 #configFilename = "plugins.json"
-configFilename = "SampleJSON.json"
+#configFilename = "SampleJSON.json"
 
 threadList = []
 outputQueueList = []  # Keep track of all outputs for use in the main thread later

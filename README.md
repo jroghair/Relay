@@ -5,11 +5,11 @@ We are Andrew Hancock, Jeremy Roghair, and Kellen O'Connor from Iowa State Unive
 # Inspiration
 Have you ever noticed the steep learning curve required to get involved with programming? Despite the efforts of some of the nation's best educators, our society is missing out on the talents of many of the nation's youth due to the perceived challenge of getting involved in robotics.  While some competitions exist, such as FIRST Tech Challenge and FIRST Robotics Competition, many students don't have access to the resources required to start a team.
 
-# Enter: Relay.
+# Enter Relay: A Platform for Educators and Young Inventors
 
-![alt text](https://raw.githubusercontent.com/jroghair/hackathon/master/20181007_084631.jpg)
+[![alt text](https://raw.githubusercontent.com/jroghair/hackathon/master/relaypic.JPG)
 
-We believe that getting youth involved with STEAM fields is of the utmost importance for the collective success of our planet.  Robotics is a fun and engaging way to get involved.  With Relay, teenagers have a simple way to interact with a myriad of components that are commonly used everywhere from agriculture to defense.
+We believe that getting youth involved with STEM fields is of the utmost importance for the collective success of our planet.  Robotics is a fun and engaging way to get involved.  With Relay, teenagers have a simple way to interact with a myriad of components that are commonly used everywhere from agriculture to defense.
 
 Relay is a collection of components that fit together to make a working system.  Whether your goal is to implement complex image analytics from a remote webcam through Google Cloud API or control an Arduino-based robot with a LiDAR, Relay is for you.  Configuration is performed through an easy to understand graphical user interface (a GUI for short).  Once the user configures *what* they want the system to do, they simply have to run Relay.
 
@@ -20,6 +20,10 @@ The name Relay has multiple meanings.  The verb "relay" means "to receive and pa
 # How it works
 
 The user of Relay has access to a GUI from which they can configure how components go together.  Under the hood, each component of the system runs on its own thread.  Each thread shares data via the Python Queue class.  By defining common data types early in the project, we were able to ensure compatibility amongst components.  One example is the Position data type.  Both the Point to Point robot navigation component and the Zed and IMU SLAM component rely on this data type.  Another example is the myriad of image processing plugins we have, including the IP webcam, HSV color conversion, the Google Cloud API annotator, and the MobileNet Single Shot Detector.  Other components include a lidar scanner and an Arduino/motor controller component.
+
+# A Preview of Relay in Action
+
+[![Alt text](https://img.youtube.com/vi/0XFblBnyezk/0.jpg)](https://www.youtube.com/watch?v=0XFblBnyezk)
 
 # The Future of Relay
 

@@ -1,0 +1,31 @@
+[
+	{
+		"PluginName": "ZedPositioning",
+		"InputType": "None",
+		"InputType2": "None",
+		"PluginID": "0",
+		"Inputs": "NoInput",
+		"Outputs": "Position",
+		"Visualize": "True"
+	},
+	{
+		"PluginName": "Zed_PointToPoint",
+		"InputType": "Position",
+		"InputType2": "None",
+		"PluginID": "0",
+		"Inputs": "0",
+		"Outputs": "Drive_Packet",
+		"Visualize": "True"
+	},
+	{
+		"PluginName": "Motor_Interface",
+		"InputType": "Drive_Packet",
+		"InputType2": "COM_Port",
+		"PluginID": "0",
+		"Inputs": "0",
+		"Inputs2": "COM5",
+		"Outputs": "None",
+		"Visualize": "True"
+	}
+]
+		

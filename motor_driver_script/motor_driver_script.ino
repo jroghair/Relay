@@ -2,7 +2,7 @@
 
 Servo myservo1; //left
 Servo myservo2; //right
-double intensity = 20;
+double intensity = 10;
 
 void setup() {
   Serial.begin(115200);
@@ -21,10 +21,10 @@ void loop() {
     if(command == 'f'){
       myservo1.writeMicroseconds(1500 - (intensity / 50.0 * 500.0));
       myservo2.writeMicroseconds(1500 + (intensity / 50.0 * 500.0));
-    }else if(command == 'l'){
+    }else if(command == 'r'){
       myservo1.writeMicroseconds(1500 + (intensity / 50.0 * 500.0));
       myservo2.writeMicroseconds(1500 + (intensity / 50.0 * 500.0));
-    }else if(command == 'r'){
+    }else if(command == 'l'){
       myservo1.writeMicroseconds(1500 - (intensity / 50.0 * 500.0));
       myservo2.writeMicroseconds(1500 - (intensity / 50.0 * 500.0));
     }else if(command == 's'){

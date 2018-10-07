@@ -10,6 +10,8 @@ from ZedPositioning import ZedPositioning
 from tim_551_component import tim_551_component
 from Zed_Lidar_SLAM import Zed_Lidar_SLAM
 from IPWebcam import IPWebcam
+from differential_drive_plug_in import Motor_Interface
+from Zed_PointToPoint import Zed_PointToPoint
 
 import random
 
@@ -17,7 +19,7 @@ import random
 
 
 
-configFilename = "SampleJSON_zed_lidar_slam.json"
+configFilename = "SampleJSON_zed_ard_p2p.json"
 
 threadList = []
 outputQueueList = []  # Keep track of all outputs for use in the main thread later
@@ -46,7 +48,10 @@ with open(configFilename) as fp:
             inputQueue2Name = defin["InputType2"] + defin["Inputs2"]
             inputQueue2 = eval(inputQueue2Name)
         else:
-            inputQueue2 = False
+            if(defin["InputType2"] == "COM_Port"):
+                inputQueue2 = defin["Inputs2"]
+            else:
+                inputQueue2 = False
         visualizeTemp = eval(defin["Visualize"])
         print(inputQueue2)
         if inputQueue2:

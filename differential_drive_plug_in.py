@@ -2,29 +2,38 @@ import queue as q
 import serial
 from time import sleep
 import random
-#from Arduino import Arduino
 
-class dif_drive_motor_plugin:
 
-	def __init__(self, input_q, output_q, com_port):
-		self.in_queue  = input_q
-		self.out_queue = output_q
-		self.cp = com_port
+# from Arduino import Arduino
 
-	def run(self):
-		ser = serial.Serial(self.cp, 115200)
-		sleep(1)
+class Motor_Interface:
 
-		while 1:
+    def __init__(self, input_q, com_port, output_q, visualize):
+        self.in_queue = input_q
+        self.out_queue = output_q
+        self.cp = com_port
+        self.visualize = visualize
+        self.run()
 
-			if self.in_queue.qsize() > 0:
-				print(self.in_queue.qsize())
-				command = self.in_queue.get();
-				ser.write(bytes(command, 'utf-8'))
-			else:
-				ser.write(b's')
-			
-			sleep(1)			
+    def run(self):
+        ser = serial.Serial(self.cp, 115200)
+        sleep(3)
+
+        while True:
+
+            if self.in_queue.qsize() > 0:
+                if self.visualize:
+                    print("Motor interface queue size: " + str(self.in_queue.qsize()))
+                command = self.in_queue.get()
+                ser.write(bytes(command, 'utf-8'))
+                # if (self.visualize):
+                #     print("Command sent to arduino: " + str(command))
+            else:
+                ser.write(b's')
+                # if (self.visualize):
+                #     print("Command sent to arduino: " + str('s'))
+
+            sleep(.02)
 
 # def main():
 # 	input_queue = q.Queue()

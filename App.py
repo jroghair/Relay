@@ -34,7 +34,7 @@ class App:
     ipweblab = None
 
     #nested dictionary to pass plugins to output json file
-    plugins = {'opencv': {}, 'hsv' : {}, 'cloud': {}, 'mobnet': {}, 'zedpos': {}, 'tim': {}, 'zedslam':{}, 'ipweb': {}}
+    plugins = {'AAopencv': {}, 'BAhsv' : {}, 'BBcloud': {}, 'BCmobnet': {}, 'CAzedpos': {}, 'CBtim': {}, 'CDzedslam':{}, 'ABipweb': {}}
 
 
     def __init__(self, master):
@@ -103,7 +103,7 @@ class App:
             self.opencvVisualize=False
             #jsonData = self.establishPlugins("OpenCVCamera, "NoInput", "0", "NoInput", "ImageQueue", "Visualize")
         opencvplugin = self.establishPlugins("OpenCVCamera", "NoInput", "NoInput", ans, "NoInput", "NoInput", "ImageQueue", visual)
-        self.plugins["opencv"] = opencvplugin
+        self.plugins["AAopencv"] = opencvplugin
 
 
     def hsvRectangle(self):
@@ -121,7 +121,7 @@ class App:
             self.hsvVisualize=False
         #jsonData = self.establishPlugins("HSVTransform", "ImageQueue", "1", "0", "ImageQueue", "Visualize")
         hsvplugin = self.establishPlugins("HSVTransform", "ImageQueue", "NoInput", ans, "0", "NoInput", "ImageQueue", visual)
-        self.plugins["hsv"] = hsvplugin
+        self.plugins["BAhsv"] = hsvplugin
 
     def mobnetRectangle(self):
         ans=0
@@ -138,7 +138,7 @@ class App:
             self.canvas.delete(self.mobnetlab)
             self.mobnetVisualize=False
         mobnetplugin = self.establishPlugins("MobileNetSSD", "ImageQueue", "NoInput", ans, "0", "NoInput", "ImageQueue", visual)
-        self.plugins["mobnet"] = mobnetplugin
+        self.plugins["BCmobnet"] = mobnetplugin
 
     def cloudRectangle(self):
         ans=0
@@ -154,7 +154,7 @@ class App:
             self.canvas.delete(self.cloudlab)
             self.cloudVisualize=False
         cloudplugin = self.establishPlugins("GoogleCloudAnnotator", "ImageQueue", "NoInput", ans, "0", "NoInput", "Labels", visual)
-        self.plugins["cloud"] = cloudplugin
+        self.plugins["BBcloud"] = cloudplugin
 
     def zedposRectangle(self):
         ans=0
@@ -169,8 +169,8 @@ class App:
             self.canvas.delete(self.zedposrec)
             self.canvas.delete(self.zedposlab)
             self.zedposVisualize=False
-        zedposplugin = self.establishPlugins("ZedPositioning", "None", "NoInput", ans, "NoInput", "NoInput", "PositionQueue", visual)
-        self.plugins["zedpos"] = zedposplugin
+        zedposplugin = self.establishPlugins("ZedPositioning", "None", "NoInput", ans, "NoInput", "NoInput", "Position", visual)
+        self.plugins["CAzedpos"] = zedposplugin
 
     # def establishPlugins(self, PluginName, InputType, InputType2, PluginID, Inputs, Inputs2, Outputs, Visualize
     def timRectangle(self):
@@ -187,7 +187,7 @@ class App:
             self.canvas.delete(self.timlab)
             self.timVisualize=False
         timplugin = self.establishPlugins("tim_551_component", "None", "None", ans, "NoInput", "NoInput", "laserscan", visual)
-        self.plugins["tim"] = timplugin
+        self.plugins["CBtim"] = timplugin
 
     def zedslamRectangle(self):
         ans=0
@@ -203,7 +203,7 @@ class App:
             self.canvas.delete(self.zedslamlab)
             self.zedslamVisualize=False
         zedslamplugin = self.establishPlugins("Zed_Lidar_SLAM", "laserscan", "Position", ans, "0", "0", "map", visual)
-        self.plugins["zedslam"] = zedslamplugin
+        self.plugins["CDzedslam"] = zedslamplugin
 
 
     def ipwebRectangle(self):
@@ -221,13 +221,13 @@ class App:
             self.ipwebVisualize=False
         # def establishPlugins(self, PluginName, InputType, InputType2, PluginID, Inputs, Inputs2, Outputs, Visualize
         ipwebplugin = self.establishPlugins("IPWebcam", "None", "None", ans, "None", "None", "ImageQueue", visual)
-        self.plugins["ipweb"] = ipwebplugin
+        self.plugins["ABipweb"] = ipwebplugin
 
 
     #need to modify still
     def writeToJson(self):
-        with open('plugins', 'w') as outfile:
-            json.dump(self.plugins, outfile)
+        with open('plugins.json', 'w') as outfile:
+            json.dump(self.plugins, outfile, sort_keys=True)
         print("Data output to json")
 
     def establishPlugins(self, PluginName, InputType, InputType2, PluginID, Inputs, Inputs2, Outputs, Visualize):

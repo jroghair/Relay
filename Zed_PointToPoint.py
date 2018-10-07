@@ -1,12 +1,16 @@
 import queue
 from math import atan2, sin, cos, sqrt, tan, pow, pi
 from time import sleep
+from playsound import playsound
+
 class Zed_PointToPoint:
     def __init__(self, inputQ1, outputQ, vis):
         self.positionQueue = inputQ1
         self.outputQueue = outputQ
         self.visualize = vis
         self.maxQSize = 5
+        self.UsePointList = True
+        self.PointList = [(0, 2), (2,2), (2, 0), (0, 0)]
         self.run()
 
     def distToNextPoint(self, xcur, ycur, xdes, ydes):
@@ -41,9 +45,15 @@ class Zed_PointToPoint:
             print("Stopping")
 
     def run(self):
+        iterNum = 0
+        playsound("attackSound.wav", block=False)
         while True:
-            userx = float(eval(input("Input desired x location: " )))
-            usery = float(eval(input("Input desired y location: " )))
+            if not self.UsePointList:
+                userx = float(eval(input("Input desired x location: " )))
+                usery = float(eval(input("Input desired y location: " )))
+            else:
+                userx = self.PointList[iterNum][0]
+                usery = self.PointList[iterNum][1]
             distToWaypoint = 100000000
             while distToWaypoint >= .5:
 
@@ -66,7 +76,7 @@ class Zed_PointToPoint:
                             print("At desired waypoint")
                             self.stop()
                     else:
-                        if abs(smallestDif)<20*pi/180:
+                        if abs(smallestDif)<22*pi/180:
                             self.travelForward()
                         else:
                             if smallestDif > 0:
@@ -75,3 +85,4 @@ class Zed_PointToPoint:
                                 self.turnRight()
                 except:
                     print("Error somewhere in sending drive commands")
+            iterNum+=1

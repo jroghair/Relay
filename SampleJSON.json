@@ -4,39 +4,17 @@
 		"InputType": "NoInput",
 		"PluginID": "0",
 		"Inputs": "NoInput",
+		"InputType2": "None",
 		"Outputs": "ImageQueue",
 		"Visualize": "True"
 	},
 	{
 		"PluginName": "HSVTransform",
 		"InputType": "ImageQueue",
+		"InputType2": "None",
 		"PluginID": "1",
 		"Inputs": "0",
 		"Outputs": "ImageQueue",
-		"Visualize": "False"
-	},
-	{
-		"PluginName": "GoogleCloudAnnotator",
-		"InputType": "ImageQueueDISABLE",
-		"PluginID": "0",
-		"Inputs": "0",
-		"Outputs": "Labels",
-		"Visualize": "True"
-	},
-	{
-		"PluginName": "MobileNetSSD",
-		"InputType": "ImageQueue",
-		"PluginID": "2",
-		"Inputs": "0",
-		"Outputs": "ImageQueue",
-		"Visualize": "True"
-	},
-	{
-		"PluginName": "ZedPositioning",
-		"InputType": "None",
-		"PluginID": "0",
-		"Inputs": "NoInput",
-		"Outputs": "PositionQueue",
 		"Visualize": "True"
 	}
 ]

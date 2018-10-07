@@ -20,8 +20,8 @@ class ZedPositioning():
         self.visualize = visualize
         self.xlist = []
         self.ylist = []
-        # if(self.visualize):
-
+        if(self.visualize):
+            plt.figure(1)
         init = zcam.PyInitParameters(camera_resolution=sl.PyRESOLUTION.PyRESOLUTION_VGA,
                                      depth_mode=sl.PyDEPTH_MODE.PyDEPTH_MODE_PERFORMANCE,
                                      coordinate_units=sl.PyUNIT.PyUNIT_METER,
@@ -83,16 +83,16 @@ class ZedPositioning():
                         self.outputQueue.put(self.position)
                     endtime = time()
                     if(self.visualize):
-                        print("Time elapsed Zed Positioning: " + str(endtime-starttime))
-                        print("Approximate fps: " + str(1/(endtime-starttime)))
-                        print("X, Y, Theta: " + str(self.x) + ", " + str(self.y) + ", " + str(self.orientation*180/3.14159))
-                        # ax2 = plt.subplot(211)
-                        # ax2.set_aspect("equal")
-                        # ax2.scatter(self.x, self.y, c = 'r', s = 3)
-                        # plt.savefig("Test.png")
-                        # tempimg = cv2.imread("Test.png")
-                        # cv2.imshow("ZedPositioning", tempimg)
-                        # os.remove('Test.png')
-                        # cv2.waitKey(1)
+                        # print("Time elapsed Zed Positioning: " + str(endtime-starttime))
+                        # print("Approximate fps: " + str(1/(endtime-starttime)))
+                        # print("X, Y, Theta: " + str(self.x) + ", " + str(self.y) + ", " + str(self.orientation*180/3.14159))
+                        ax2 = plt.subplot(111)
+                        ax2.set_aspect("equal")
+                        ax2.scatter(self.x, self.y, c = 'r', s = 3)
+                        plt.savefig("Test.png")
+                        tempimg = cv2.imread("Test.png")
+                        cv2.imshow("ZedPositioning", tempimg)
+                        os.remove('Test.png')
+                        cv2.waitKey(1)
             else:
                 tp.c_sleep_ms(1)

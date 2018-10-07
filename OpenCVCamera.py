@@ -13,7 +13,7 @@ class OpenCVCamera:
         while True:
             ret, frame = self.cap.read()
             if(ret):
-                if(self.OutputQueue.full()):
+                if(self.OutputQueue.qsize()>1):
                     self.OutputQueue.get() # Remove last thing from queue
                 else:
                     self.OutputQueue.put(frame)

@@ -21,21 +21,18 @@ import random
 
 #configFilename = "SampleJSON_zed_ard_p2p.json"
 #configFilename = "SampleJSON_opencvcam_ipcam.json"
-configFilename = "plugins.json"
+#configFilename = "plugins.json"
+configFilename = "SampleJSON.json"
 
 threadList = []
 outputQueueList = []  # Keep track of all outputs for use in the main thread later
 with open(configFilename) as fp:
     json_object = json.load(fp)
-    ThreadDefinitionsList = [thread for thread in json_object] # List of keys (each type of plugin
-    for key in sorted(ThreadDefinitionsList):
-        defin = json_object[key]
-        if(not defin):
-            continue
-        #for defin in ThreadDefinitionsList:
+    ThreadDefinitionsList = [thread for thread in json_object]
+    for defin in ThreadDefinitionsList:
         print("Defin: " + str(defin))
         objectType = eval(defin["PluginName"])
-        Output_Queue_name = defin["Outputs"] + str(defin["PluginID"])
+        Output_Queue_name = defin["Outputs"] + defin["PluginID"]
         exec(Output_Queue_name + " = queue.LifoQueue(maxsize=4)")
         outputQueue = eval(Output_Queue_name)  # outputQueue is the queue object for the output
         outputQueueList.append(outputQueue)

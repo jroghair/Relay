@@ -2,7 +2,7 @@
 
 Servo myservo1; //left
 Servo myservo2; //right
-double intensity = 15;
+double intensity = 25;
 double turnIntensity = 10;
 
 void setup() {

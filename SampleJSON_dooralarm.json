@@ -1,0 +1,21 @@
+[
+	{
+		"PluginName": "IPWebcam",
+		"InputType": "None",
+		"InputType2": "None",
+		"PluginID": "0",
+		"Inputs": "NoInput",
+		"Outputs": "ImageQueue",
+		"Visualize": "False"
+	},
+	{
+		"PluginName": "Door_Alarm",
+		"InputType": "ImageQueue",
+		"InputType2": "None",
+		"PluginID": "0",
+		"Inputs": "0",
+		"Outputs": "None",
+		"Visualize": "True"
+	}
+]
+		

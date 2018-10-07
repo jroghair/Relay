@@ -9,8 +9,8 @@ class Zed_PointToPoint:
         self.outputQueue = outputQ
         self.visualize = vis
         self.maxQSize = 5
-        self.UsePointList = True
-        self.PointList = [(0, 2), (2,2), (2, 0), (0, 0)]
+        self.UsePointList = False
+        self.PointList = [(-.5, 2), (0,3), (1, 4), (1, 0), (0, 0)]
         self.run()
 
     def distToNextPoint(self, xcur, ycur, xdes, ydes):

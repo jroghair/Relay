@@ -12,6 +12,7 @@ from Zed_Lidar_SLAM import Zed_Lidar_SLAM
 from IPWebcam import IPWebcam
 from differential_drive_plug_in import Motor_Interface
 from Zed_PointToPoint import Zed_PointToPoint
+from Door_Alarm import Door_Alarm
 
 import random
 
@@ -20,10 +21,12 @@ import random
 
 
 #configFilename = "SampleJSON_zed_mn.json"
-configFilename = "SampleJSON_opencvcam_ipcam.json"
-#configFilename = "plugins.json"
-#configFilename = "SampleJSON.json"
-
+#configFilename = "SampleJSON_opencvcam_ipcam.json" # Displays ip cam and opencv cam with mobilenet ssd output
+#configFilename = "SampleJSON_ipcam_google.json" # Use IP Camera, google, and mobilenet
+#configFilename = "SampleJSON.json" # Camera input to HSV
+#configFilename = "SampleJSON_zed_lidar_slam.json" # Displays only lidar scan
+#configFilename = "SampleJSON_zed_ard_p2p.json" # For point to point nav with zed, manual or auto
+configFilename = "SampleJSON_dooralarm.json"
 threadList = []
 outputQueueList = []  # Keep track of all outputs for use in the main thread later
 with open(configFilename) as fp:

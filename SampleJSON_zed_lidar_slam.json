@@ -15,7 +15,7 @@
 		"PluginID": "0",
 		"Inputs": "NoInput",
 		"Outputs": "laserscan",
-		"Visualize": "False"
+		"Visualize": "True"
 	},
 	{
 		"PluginName": "Zed_Lidar_SLAM",
@@ -25,7 +25,7 @@
 		"InputType2": "Position",
 		"Inputs2": "0",
 		"Outputs": "map",
-		"Visualize": "True"
+		"Visualize": "False"
 	}
 ]
 		

@@ -2,7 +2,7 @@ import cv2
 
 class OpenCVCamera:
     def __init__(self, inputs, imageQueueOut, visualize):
-        self.cap = cv2.VideoCapture(1)
+        self.cap = cv2.VideoCapture(0)
         self.cap.set(3, 720) # Set image width
         self.cap.set(4, 480) # Set image height
         self.OutputQueue = imageQueueOut

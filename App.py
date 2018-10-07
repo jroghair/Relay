@@ -2,7 +2,6 @@
 from tkinter import *
 from tkinter.simpledialog import askstring, askinteger
 import json
-from DragManager import DragManager
 
 class App:
     canvas = None
@@ -189,7 +188,7 @@ class App:
             self.canvas.delete(self.zedslamrec)
             self.canvas.delete(self.zedslamlab)
             self.zedslamVisualize=False
-        zedslamplugin = self.establishPlugins("Zed_Lidar_SLAM", "laserscan", "0", ans, "0", "Position", "map", self.zedslamVisualize)
+        zedslamplugin = self.establishPlugins("Zed_Lidar_SLAM", "laserscan", "Position", ans, "0", "0", "map", self.zedslamVisualize)
         self.plugins["zedslam"] = zedslamplugin
 
 
@@ -204,7 +203,8 @@ class App:
             self.canvas.delete(self.ipwebrec)
             self.canvas.delete(self.ipweblab)
             self.ipwebVisualize=False
-        ipwebplugin = self.establishPlugins("IPWebcam", "", "", ans, "", "", "", self.ipwebVisualize)
+        # def establishPlugins(self, PluginName, InputType, InputType2, PluginID, Inputs, Inputs2, Outputs, Visualize
+        ipwebplugin = self.establishPlugins("IPWebcam", "None", "None", ans, "None", "None", "ImageQueue", self.ipwebVisualize)
         self.plugins["ipweb"] = ipwebplugin
 
 

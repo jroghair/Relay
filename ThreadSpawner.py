@@ -19,7 +19,8 @@ import random
 
 
 
-configFilename = "SampleJSON_zed_ard_p2p.json"
+#configFilename = "SampleJSON_zed_ard_p2p.json"
+configFilename = "SampleJSON_opencvcam_ipcam.json"
 
 threadList = []
 outputQueueList = []  # Keep track of all outputs for use in the main thread later
@@ -53,7 +54,6 @@ with open(configFilename) as fp:
             else:
                 inputQueue2 = False
         visualizeTemp = eval(defin["Visualize"])
-        print(inputQueue2)
         if inputQueue2:
             tempargs = (inputQueue, inputQueue2, outputQueue, visualizeTemp)
         else:

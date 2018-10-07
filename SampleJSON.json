@@ -21,7 +21,7 @@
 		"PluginID": "0",
 		"Inputs": "0",
 		"Outputs": "Labels",
-		"Visualize": "False"
+		"Visualize": "True"
 	},
 	{
 		"PluginName": "MobileNetSSD",
@@ -29,7 +29,7 @@
 		"PluginID": "2",
 		"Inputs": "0",
 		"Outputs": "ImageQueue",
-		"Visualize": "False"
+		"Visualize": "True"
 	},
 	{
 		"PluginName": "ZedPositioning",

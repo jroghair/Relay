@@ -1,5 +1,8 @@
 import cv2
 import numpy as np
+import time, random
+
+
 
 # THIS CODE HAS BEEN ADAPTED FROM https://www.pyimagesearch.com/2017/09/11/object-detection-with-deep-learning-and-opencv/
 # It is used to illustrate the functionality of our framework.
@@ -17,6 +20,7 @@ class MobileNetSSD:
         self.COLORS = np.random.uniform(0, 255, size=(len(self.CLASSES), 3))
         self.net = cv2.dnn.readNetFromCaffe("MobileNetSSD_deploy.prototxt.txt", "MobileNetSSD_deploy.caffemodel")
         self.minConfidence = .5
+        self.id = random.random()
         self.run()
 
     def run(self):
@@ -56,5 +60,6 @@ class MobileNetSSD:
 
                 # show the output image
                 #cv2.namedWindow("Output", cv2.WINDOW_NORMAL)
-                    cv2.imshow("Output", image)
+                    windowName = "Output: " + str(self.id)
+                    cv2.imshow(windowName, image)
                     key = cv2.waitKey(1) & 0xFF

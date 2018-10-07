@@ -20,14 +20,12 @@ class GoogleCloudAnnotator:
                 image = self.inputQueue.get()
             else:
                 continue
-            cv2.imwrite("temp.jpg", image)
-            with io.open("temp.jpg", 'rb') as image_file:
-                content = image_file.read()
-            os.remove("temp.jpg")
+            content = cv2.imencode('.jpg', image)[1].tostring()
             image = types.Image(content=content)
             response = self.client.label_detection(image=image)
             labels = response.label_annotations
             if(self.visualize):
                 print('Labels:')
                 for label in labels:
-                    print(label.description)
+                    if(label.score>.8):
+                        print(label.description)

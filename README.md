@@ -7,6 +7,8 @@ Have you ever noticed the steep learning curve required to get involved with pro
 
 # Enter: Relay.
 
+![alt text](https://raw.githubusercontent.com/jroghair/hackathon/master/20181007_084631.jpg)
+
 We believe that getting youth involved with STEAM fields is of the utmost importance for the collective success of our planet.  Robotics is a fun and engaging way to get involved.  With Relay, teenagers have a simple way to interact with a myriad of components that are commonly used everywhere from agriculture to defense.
 
 Relay is a collection of components that fit together to make a working system.  Whether your goal is to implement complex image analytics from a remote webcam through Google Cloud API or control an Arduino-based robot with a LiDAR, Relay is for you.  Configuration is performed through an easy to understand graphical user interface (a GUI for short).  Once the user configures *what* they want the system to do, they simply have to run Relay.

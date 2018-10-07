@@ -1,6 +1,9 @@
 import queue
 from math import sin, cos, tan, atan2, pi
 import matplotlib.pyplot as plt
+import pyqtgraph as pg
+import numpy as np
+from PyQt5 import QtCore, QtWidgets, QtGui
 
 class Zed_Lidar_SLAM:
     def __init__(self, inputQueue1, inputQueue2, outputQueue, visualize):
@@ -10,13 +13,16 @@ class Zed_Lidar_SLAM:
         self.visualize = visualize
         self.map_x_points = []
         self.map_y_points = []
-        self.fig = plt.figure()
-        self.ax  = self.fig.add_subplot(111)
-        x = [0]
-        y = [0]
-        self.li, = self.ax.plot(x, y, 'o')
-        self.fig.canvas.draw()
-        plt.pause(.001)
+        if(self.visualize):
+            self.pw = pg.plot()
+            # self.fig = plt.figure()
+            # self.ax  = self.fig.add_subplot(111)
+            # x = [0]
+            # y = [0]
+            # self.li, = self.ax.plot(x, y, 'o')
+            # self.fig.canvas.draw()
+            # plt.pause(.001)
+
 
         print("Starting Zed_Lidar_SLAM")
         self.run()
@@ -26,6 +32,8 @@ class Zed_Lidar_SLAM:
         global_x = []
         global_y = []
         for theta, radius in laserscan:
+            if radius >9.9:
+                continue
             theta = theta*pi/180.0
             tempx = x + radius*cos(orientation + theta)
             tempy = y + radius*sin(orientation + theta)
@@ -43,15 +51,18 @@ class Zed_Lidar_SLAM:
             self.x = self.position[0]
             self.y = self.position[1]
             xlist, ylist = self.map_scan_to_world(self.laserscan, self.position)
-            if self.count%1 ==0:
-                self.li.set_xdata(xlist)
-                self.li.set_ydata(ylist)
-                self.ax.relim()
-                self.ax.set_aspect("equal")
-                self.ax.set_xlim((-10, 10))
-                self.ax.set_ylim((-10, 10))
-                self.fig.canvas.draw()
-                plt.pause(.01)
+            if(self.visualize):
+                self.pw.plot(xlist, ylist, clear=False, pen=None, symbol="o")
+                pg.QtGui.QGuiApplication.processEvents()
+                # if self.count%1 ==0:
+                #     self.li.set_xdata(xlist)
+                #     self.li.set_ydata(ylist)
+                #     self.ax.relim()
+                #     self.ax.set_aspect("equal")
+                #     self.ax.set_xlim((-10, 10))
+                #     self.ax.set_ylim((-10, 10))
+                #     self.fig.canvas.draw()
+                #     plt.pause(.01)
             # self.map_x_points.extend(xlist)
             # self.map_y_points.extend(ylist)
             # print(list(zip(self.map_x_points, self.map_y_points)))

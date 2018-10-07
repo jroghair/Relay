@@ -9,6 +9,7 @@ from GoogleCloudAnnotator import GoogleCloudAnnotator
 from ZedPositioning import ZedPositioning
 from tim_551_component import tim_551_component
 from Zed_Lidar_SLAM import Zed_Lidar_SLAM
+from IPWebcam import IPWebcam
 
 import random
 
@@ -55,6 +56,7 @@ with open(configFilename) as fp:
         tempThread = threading.Thread(target=objectType, args=tempargs)
         print(tempargs)
         threadList.append(tempThread)
+
     for thread in threadList:
         thread.start()
 

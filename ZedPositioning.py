@@ -4,7 +4,10 @@ import pyzed.camera as zcam
 import pyzed.types as tp
 import pyzed.core as core
 import pyzed.defines as sl
-import threading
+import threading, os
+import pyqtgraph as pg
+
+from PyQt5 import QtCore, QtWidgets, QtGui
 import matplotlib.pyplot as plt
 import cv2
 
@@ -16,6 +19,8 @@ class ZedPositioning():
         self.visualize = visualize
         self.xlist = []
         self.ylist = []
+        # if(self.visualize):
+
         init = zcam.PyInitParameters(camera_resolution=sl.PyRESOLUTION.PyRESOLUTION_VGA,
                                      depth_mode=sl.PyDEPTH_MODE.PyDEPTH_MODE_PERFORMANCE,
                                      coordinate_units=sl.PyUNIT.PyUNIT_METER,
@@ -81,6 +86,7 @@ class ZedPositioning():
                         plt.savefig("Test.png")
                         tempimg = cv2.imread("Test.png")
                         cv2.imshow("ZedPositioning", tempimg)
+                        os.remove('Test.png')
                         cv2.waitKey(1)
             else:
                 tp.c_sleep_ms(1)

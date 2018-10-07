@@ -1,0 +1,39 @@
+[
+	{
+		"PluginName": "OpenCVCamera",
+		"InputType": "NoInput",
+		"InputType2": "None",
+		"PluginID": "0",
+		"Inputs": "NoInput",
+		"Outputs": "ImageQueue",
+		"Visualize": "False"
+	},
+	{
+		"PluginName": "IPWebcam",
+		"InputType": "None",
+		"InputType2": "None",
+		"PluginID": "1",
+		"Inputs": "NoInput",
+		"Outputs": "ImageQueue",
+		"Visualize": "False"
+	},
+	{
+		"PluginName": "MobileNetSSD",
+		"InputType": "ImageQueue",
+		"InputType2": "None",
+		"PluginID": "2",
+		"Inputs": "1",
+		"Outputs": "ImageQueue",
+		"Visualize": "True"
+	},
+	{
+		"PluginName": "MobileNetSSD",
+		"InputType": "ImageQueue",
+		"InputType2": "None",
+		"PluginID": "3",
+		"Inputs": "0",
+		"Outputs": "ImageQueue",
+		"Visualize": "True"
+	}
+]
+		

@@ -7,7 +7,7 @@ Have you ever noticed the steep learning curve required to get involved with pro
 
 # Enter Relay: A Platform for Educators and Young Inventors
 
-![alt text](https://raw.githubusercontent.com/jroghair/hackathon/master/relaypic.JPG)
+[![alt text](https://raw.githubusercontent.com/jroghair/hackathon/master/relaypic.JPG)
 
 We believe that getting youth involved with STEM fields is of the utmost importance for the collective success of our planet.  Robotics is a fun and engaging way to get involved.  With Relay, teenagers have a simple way to interact with a myriad of components that are commonly used everywhere from agriculture to defense.
 
@@ -23,7 +23,7 @@ The user of Relay has access to a GUI from which they can configure how componen
 
 # A Preview of Relay in Action
 
-[![Alt text][(https://img.youtube.com/vi/0XFblBnyezk/0.jpg)](https://www.youtube.com/watch?v=0XFblBnyezk)
+[![Alt text](https://img.youtube.com/vi/0XFblBnyezk/0.jpg)](https://www.youtube.com/watch?v=0XFblBnyezk)
 
 # The Future of Relay
 
